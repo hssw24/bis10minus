@@ -5,8 +5,6 @@ function MathApp() {
   const [secondNumber, setSecondNumber] = useState(generateRandomNumber(0, 10));
   const [userAnswer, setUserAnswer] = useState(null);
   const [feedback, setFeedback] = useState("");
-  const [correctCount, setCorrectCount] = useState(0); // Anzahl richtiger Antworten
-  const [totalCount, setTotalCount] = useState(0); // Anzahl der Aufgaben
 
   function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -15,9 +13,7 @@ function MathApp() {
   function checkAnswer(answer) {
     const correctAnswer = firstNumber - secondNumber;
     setUserAnswer(answer);
-    setTotalCount(totalCount + 1); // Zählt die gestellten Aufgaben
     if (answer === correctAnswer) {
-      setCorrectCount(correctCount + 1); // Zählt nur richtige Antworten
       setFeedback("Richtig!");
     } else {
       setFeedback(`Falsch! Die richtige Antwort ist ${correctAnswer}.`);
@@ -45,9 +41,6 @@ function MathApp() {
         ))}
       </div>
       {userAnswer !== null && <div style={styles.feedback}>{feedback}</div>}
-      <div style={styles.score}>
-        Richtige Antworten: {correctCount} / Gestellte Aufgaben: {totalCount}
-      </div>
     </div>
   );
 }
@@ -90,12 +83,6 @@ const styles = {
     marginTop: '20px',
     fontSize: '20px',
     color: 'green',
-  },
-  score: {
-    marginTop: '20px',
-    fontSize: '20px',
-    fontWeight: 'bold',
-    color: '#333',
   },
 };
 
