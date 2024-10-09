@@ -20,7 +20,7 @@ function MathApp() {
       setCorrectCount(correctCount + 1); // Zählt nur richtige Antworten
       setFeedback("Richtig!");
     } else {
-      setFeedback(`Falsch! ${firstNumber} - ${secondNumber} = Die richtige Antwort ist ${correctAnswer}.`);
+      setFeedback(`Falsch! ${firstNumber} - ${secondNumber} = ${correctAnswer}`);
     }
     // Neue Aufgabe generieren
     setFirstNumber(generateRandomNumber(10, 20));
@@ -89,7 +89,7 @@ const styles = {
   feedback: {
     marginTop: '20px',
     fontSize: '20px',
-    color: 'green',
+    color: 'darkgreen',
   },
   score: {
     marginTop: '20px',
