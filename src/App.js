@@ -20,7 +20,7 @@ function MathApp() {
       setCorrectCount(correctCount + 1); // Zählt nur richtige Antworten
       setFeedback("Richtig!");
     } else {
-      setFeedback(`Falsch! Die richtige Antwort ist ${correctAnswer}.`);
+      setFeedback(`Falsch! ${firstNumber} - ${secondNumber} = Die richtige Antwort ist ${correctAnswer}.`);
     }
     // Neue Aufgabe generieren
     setFirstNumber(generateRandomNumber(10, 20));
@@ -29,9 +29,9 @@ function MathApp() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.header}>Subtraktionsspiel</h1>
+      <h1 style={styles.header}>Mathe-App Minus</h1>
       <div style={styles.question}>
-        <span>{firstNumber}</span> - <span>{secondNumber}</span> = ?
+        <span>{firstNumber}</span> - <span>{secondNumber}</span> = 
       </div>
       <div style={styles.buttonsContainer}>
         {Array.from({ length: 21 }, (_, i) => (
@@ -46,7 +46,7 @@ function MathApp() {
       </div>
       {userAnswer !== null && <div style={styles.feedback}>{feedback}</div>}
       <div style={styles.score}>
-        Richtige Antworten: {correctCount} / Gestellte Aufgaben: {totalCount}
+        Richtig: {correctCount}/{totalCount}
       </div>
     </div>
   );
